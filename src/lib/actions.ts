@@ -57,3 +57,16 @@ export const updateContact = async (id: string, prevState: any, formData: FormDa
     revalidatePath("/contacts")
     redirect("/contacts")
 }
+
+
+export const deleteContact = async (id: string) => {
+    try {
+        await prisma.contact.delete({
+            where: {id}
+        })
+    } catch (error) {
+        return {message: "Failed to delete contact"}
+    }
+
+    revalidatePath("/contacts")
+}
