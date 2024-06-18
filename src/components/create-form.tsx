@@ -1,10 +1,10 @@
-
+import { saveContact } from "@/lib/actions";
 
 const CreateForm = () => {
 
   return (
     <div>
-      <form>
+      <form action={saveContact}>
         <div className="mb-5">
           <label
             htmlFor="name"
