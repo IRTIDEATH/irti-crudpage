@@ -10,8 +10,13 @@ const Search = () => {
   const pathname = usePathname()
   const {replace} = useRouter()
 
+  // usedebounce digunakan agar saat user ngetik ada delay 330ms setelah itu baru fungsi dijalankan
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams)
+
+    // melakukan reset page pada saat melakukan pencarian (reset lagi jadi 1)
+    params.set("page", "1")
+
     // jika ada data pada term (ketikan user), akan di set params nya (nama params nya query) lalu akan di set valuenya dari term
     if (term) {
       params.set("query", term);
