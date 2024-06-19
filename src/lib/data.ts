@@ -16,13 +16,14 @@ export const getContacts = async (query: string, currentPage: number) => {
           {
             name: {
               contains: query,
-              // mode ini artinya tidak memperdulikan dia 
+              // mode ini artinya tidak memperdulikan dia uppercase atau lowercase
               mode: "insensitive",
             },
           },
           {
             phone: {
               contains: query,
+              // mode ini artinya tidak memperdulikan dia uppercase atau lowercase
               mode: "insensitive",
             },
           },
