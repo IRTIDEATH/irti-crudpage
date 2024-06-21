@@ -6,6 +6,7 @@ const ITEMS_PER_PAGE = 5
 export const getContacts = async (query: string, currentPage: number) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE
   try {
+    await new Promise ((resolve) => setTimeout(resolve, 3000))
     const contacts = await prisma.contact.findMany({
       skip: offset,
       // take ini sama seperti limit pada arrow query
